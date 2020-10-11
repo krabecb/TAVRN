@@ -3,6 +3,9 @@ const express = require('express')
 const server = express()
 const PORT = process.env.PORT
 
+//Database
+require('./db/db')
+
 //Middleware
 server.use(express.static('public'))
 
