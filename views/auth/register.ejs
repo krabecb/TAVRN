@@ -1,0 +1,34 @@
+<%- include('../partials/header.ejs') %>
+
+	<h3>Sign up here</h3>
+
+	<form method="POST" action="/auth/register">
+		<fieldset>
+			<legend>
+				<small>
+					Choose a username and password below
+				</small>
+			</legend>
+			<div>
+				<label for="username">Username:</label>
+				<input 
+					id="username" 
+					type="text" 
+					name="username"
+					placeholder="Create a username" 
+				/>
+			</div>
+			<div>
+				<label for="password">Password:</label>
+				<input 
+					id="password" 
+					type="password" 
+					name="password"
+					placeholder="Create a password" 
+				/>
+			</div>
+			<button>Sign up</button>
+		</fieldset>
+	</form>
+
+<%- include('../partials/footer.ejs') %>

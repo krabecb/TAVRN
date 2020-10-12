@@ -10,6 +10,8 @@ require('./db/db')
 server.use(express.static('public'))
 
 //Controllers
+const authController = require('./controllers/authController')
+server.use('/auth', authController)
 
 //Routes
 server.get('/', (req, res) => {
@@ -18,7 +20,7 @@ server.get('/', (req, res) => {
 
 //404
 server.get('*', (req, res) => {
-	rest.status(404).render('404.ejs')
+	res.status(404).render('404.ejs')
 })
 
 server.listen(PORT, () => {
