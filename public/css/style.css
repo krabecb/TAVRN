@@ -1,3 +1,7 @@
 body {
-	background-color: orange;
+	background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+}
+
+html {
+	height: 100%;
 }
