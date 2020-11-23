@@ -59,4 +59,9 @@ router.post('/register', async (req, res, next) => {
 	}
 })
 
+//Login form: GET /auth/login
+router.get('/login', (req, res) => {
+	res.render('auth/login.ejs')
+})
+
 module.exports = router
