@@ -64,4 +64,38 @@ router.get('/login', (req, res) => {
 	res.render('auth/login.ejs')
 })
 
+//Login form: POST /auth/login
+router.post('/login', async (req, res, next) => {
+	try {
+		const user = await User.findOne({ username: req.body.username })
+
+		if(!user) {
+			console.log("Bad username or password")
+			req.session.message = "Invalid username or password"
+			res.redirect('/auth/login')
+		} else {
+			const validLoginInfo = bcrypt.compareSync(req.body.password, user.password)
+
+			if(validLoginInfo) {
+				req.session.loggedIn = true
+		        req.session.userId = user._id
+		        req.session.username = user.username
+		        req.session.firstName = user.firstName
+		        req.session.lastName = user.lastName
+		        req.session.dateOfBirth = user.dateOfBirth
+		        req.session.hometown = user.hometown
+		        req.session.email = user.email
+		        req.session.message = `Welcome back, ${user.username}!`
+		        res.redirect('/')
+			} else {
+				console.log("Bad username or password")
+				req.session.message = "Invalid username or password"
+				res.redirect('/auth/login')
+			}
+		}
+	} catch(err) {
+		next(err)
+	}
+})
+
 module.exports = router
