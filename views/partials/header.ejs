@@ -3,14 +3,28 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
 </head>
 <body>
 
-	<nav>
-		
-		<a href="/">Home</a>
-		<a href="/auth/register">Register</a>
-		<a href="/auth/login">Login</a>
-		<a href="/auth/logout">Log Out</a>
+	<header>
 
-	</nav>
+		<nav>
+			
+			<a href="/">Home</a>
+
+		</nav>
+
+		<nav>
+			
+			<% if(loggedIn) { %>
+				<a href="/auth/logout">Log Out</a>
+			<% } else { %>
+				<a href="/auth/register">Register</a>
+				<a href="/auth/login">Login</a>
+			<% } %>
+
+		</nav>
+
+	</header>
