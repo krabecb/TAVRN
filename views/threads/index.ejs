@@ -1,0 +1,24 @@
+<%- include('../partials/header.ejs') %>
+
+  <div id="thread-feed">
+
+    <ul id="threads">
+        <% threads.forEach((thread) => { %>
+          <li>
+            <div id="thread-index">
+              <a href="/thread/<%= thread.id %>"><%= thread.title %></a>
+              <p id="description">
+                <%= thread.threadDescription %>
+              </p>
+              <p>
+                <%= thread.date %>  
+              </p>
+              <p>Posted by: <%= thread.user.username %></p>
+            </div>
+          </li>
+        <% }) %>    
+    </ul>
+
+</div>
+
+<%- include('../partials/footer.ejs') %>

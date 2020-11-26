@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const Thread = require('../models/thread')
 const User = require('../models/user')
+const Thread = require('../models/thread')
 
 //Index: GET /thread/
 router.get('/', async (req, res, next) => {
@@ -24,10 +24,25 @@ router.get('/new', (req, res) => {
 	})
 })
 
+//Thread show: GET /thread/:id
+router.get('/:id', async (req, res, next) => {
+	try {
+		const foundThread = await Thread.findById(req.params.id).populate('user')
+		console.log(foundThread)
+		console.log(foundThread.user.username)
+		res.render('threads/show.ejs', {
+			thread: foundThread,
+			user: req.session.username
+		})	
+	} catch(err) {
+		next(err)
+	}
+})
+
 //Thread form: POST /thread/new
 router.post('/', async (req, res, next) => {
 	try {
-		const postToCreate = {
+		const threadToCreate = {
 			title: req.body.title,
 			threadDescription: req.body.description,
 			user: req.session.userId
