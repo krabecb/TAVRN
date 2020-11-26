@@ -15,6 +15,10 @@
 		<nav>
 			
 			<a href="/">Home</a>
+			|
+			<% if(loggedIn) { %>
+				<a href="/thread/new">Create Thread</a>
+			<% } %>
 
 		</nav>
 

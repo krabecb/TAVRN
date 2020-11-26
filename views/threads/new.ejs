@@ -1,0 +1,26 @@
+<%- include('../partials/header.ejs') %>
+
+  <div id="new-container">
+
+    <div>
+  	 <h3>Start A Thread</h3>
+    </div>
+
+    <div>
+    	<form method="POST" action="/thread">
+        <fieldset>
+          <legend>Enter thread details</legend>
+          <div>
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" placeholder="Enter title name" />
+          </div>
+          <div>
+            <label for="description">Description:</label>
+            <input type="textarea" name="description" id="description" placeholder="Enter description" />
+          </div>
+          <button>Post</button>
+        </fieldset>
+      </form>
+    </div>
+
+  </div>
