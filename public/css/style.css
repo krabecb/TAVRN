@@ -1,5 +1,6 @@
 body {
 	background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+	font-family: 'Raleway', sans-serif;
 }
 
 html {
@@ -34,6 +35,16 @@ hr {
 	margin: 0 auto;
 }
 
+h3 {
+	text-align: center;
+}
+
+form {
+	margin: 0 auto;
+	width: max-content;
+	text-align: center;
+}
+
 #home-container {
 	position: relative;
 }
@@ -47,3 +58,4 @@ hr {
 #tavrn-footer-small {
 	font-family: 'Abril Fatface', cursive;
 }
+
