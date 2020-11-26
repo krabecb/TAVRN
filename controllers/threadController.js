@@ -59,4 +59,23 @@ router.post('/', async (req, res, next) => {
 	}
 })
 
+//Thread edit: GET /thread/:id/edit
+router.get('/:id/edit', async (req, res, next) => {
+	try {
+		const foundThread = await Thread.findById(req.params.id).populate('user')
+		req.session.userId == foundThread.user._id
+
+		if(req.session.username == foundThread.user.username) {
+			res.render('threads/edit.ejs', {
+			thread: foundThread,
+			})
+		} else {
+			req.session.message = "YOU DO NOT HAVE PERMISSION TO ACCESS THIS."
+			res.redirect('/')
+		}
+	} catch(err) {
+		next(err)
+	}
+})
+
 module.exports = router
