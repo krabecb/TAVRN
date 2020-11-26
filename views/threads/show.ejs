@@ -13,6 +13,13 @@
 
 	<!-- If user, show add comment -->
 
-	<!-- If thread belongs to user, show admin tools -->
+	<% if(user == thread.user.username) { %>
+     	 <div>
+        	<a href="/thread/<%= thread.id %>/edit">(Edit <%= thread.title %>)</a>
+      	</div>
+    	<form method="POST" action="/thread/<%= thread.id %>?_method=DELETE">
+        	<button>Delete <%= thread.title %></button>
+      	</form>
+      	<% } %>
 
 <%- include('../partials/footer.ejs') %>
