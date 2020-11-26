@@ -24,4 +24,24 @@ router.get('/new', (req, res) => {
 	})
 })
 
+//Thread form: POST /thread/new
+router.post('/', async (req, res, next) => {
+	try {
+		const postToCreate = {
+			title: req.body.title,
+			threadDescription: req.body.description,
+			user: req.session.userId
+		}
+		console.log('Here is req.session:')
+		console.log(req.session)
+
+		const createdThread = await Thread.create(threadToCreate)
+		req.session.message = `${createdThread.title} successfully added!`
+		res.redirect('/') //Maybe later redcirect to show?? 
+
+	} catch(error) {
+		next(error)
+	}
+})
+
 module.exports = router
