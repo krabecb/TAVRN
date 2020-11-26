@@ -73,6 +73,16 @@ router.put('/:id', async (req, res, next) => {
 	}
 }) 
 
+//Thread delete: DELETE /thread/:id
+router.delete('/:id', async (req, res, next) => {
+	try {
+		await Thread.findByIdAndRemove(req.params.id)
+		res.redirect('/thread')
+	} catch(err) {
+		next(err)
+	} 
+})
+
 //Thread edit: GET /thread/:id/edit
 router.get('/:id/edit', async (req, res, next) => {
 	try {
