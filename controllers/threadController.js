@@ -59,6 +59,20 @@ router.post('/', async (req, res, next) => {
 	}
 })
 
+//Thread update: PUT /thread/:id
+router.put('/:id', async (req, res, next) => {
+	try {
+		const updatedThread = await Thread.findByIdAndUpdate(
+			req.params.id,
+			req.body,
+			{new: true}
+			)
+		res.redirect(`/thread/${updatedThread._id}`)
+	} catch(err) {
+		next(err)
+	}
+}) 
+
 //Thread edit: GET /thread/:id/edit
 router.get('/:id/edit', async (req, res, next) => {
 	try {
