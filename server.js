@@ -41,6 +41,8 @@ const userController = require('./controllers/userController')
 server.use('/user', userController)
 const threadController = require('./controllers/threadController')
 server.use('/thread', threadController)
+const repliesController = require('./controllers/repliesController')
+server.use('/replies', repliesController)
 
 
 //Routes
