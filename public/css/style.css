@@ -1,5 +1,5 @@
 body {
-	background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+	background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 	background-repeat: no-repeat;
   background-attachment: fixed;
 	font-family: 'Raleway', sans-serif;
@@ -145,6 +145,11 @@ form {
 	display: flex;
 	justify-content: center;
 	font-family: 'Abril Fatface', cursive;
+}
+
+#res-message {
+	display: flex;
+	justify-content: flex-end;
 }
 
 /*#tavrn-footer-small {
