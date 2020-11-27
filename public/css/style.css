@@ -1,34 +1,126 @@
 body {
 	background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+	background-repeat: no-repeat;
+  background-attachment: fixed;
 	font-family: 'Raleway', sans-serif;
+	/*Animated responsive navbar - Fireship*/
+	margin: 0;
+	padding: 0;
 }
 
 html {
 	height: 100vh;
 }
 
-header {
+/*Animated responsive navbar - Fireship*/
+/*header {
 	display: flex;
 	justify-content: space-around;
-}
+}*/
 
-nav {
+/*nav {
 	width: max-content;
 }
 
 nav a {
 	color: black;
 	text-decoration: none
+}*/
+#navbar {
+	width: 5rem;
+	height: 100vh;
+	position: fixed;
+	background-color: #1B1B1F;
+	transition: width 200ms ease;
 }
 
-footer {
-	position: absolute;
+#navbar-nav {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+}
+
+.nav-item {
+	width: 100%;
+}
+
+.nav-item:last-child {
+	margin-top: auto;
+}
+
+.nav-link {
+	display: flex;
+	align-items: center;
+	height: 5rem;
+	text-decoration: none;
+	filter: grayscale(100%) opacity(0.7);
+	transition: filter 300ms ease;
+}
+
+.nav-link:hover {
+	filter: grayscale(0%) opacity(1);
+}
+
+.link-text {
+	display: none;
+	margin-left: : 1rem;
+}
+
+.nav-link svg {
+	min-width: 2rem;
+	margin: 0 1.5rem;
+}
+
+#navbar:hover {
+	width: 16rem;
+}
+
+#navbar:hover .link-text {
+	display: block;
+}
+
+.link-text {
+	color: whitesmoke;
+}
+
+.logo {
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 1rem;
+	text-align: center;
+	font-size: 1.5rem;
+	letter-spacing: 0.3ch;
+	width: 100%;
+}
+
+.logo svg {
+	transform: rotate(0deg);
+	transition: transform 300ms ease;
+}
+
+#navbar:hover .logo svg {
+	transform: rotate(-180deg);
+
+}
+
+/*Animated responsive navbar - Fireship*/
+main {
+	margin-left: 5rem;
+	padding: 1rem;
+}
+
+/*footer {
+	position: relative;
 	bottom: 0;
 	width: 100%;
 	text-align: center;
 	padding-top: 5px;
 	padding-bottom: 5px;
-}
+}*/
 
 hr {
 	width: 75%;
@@ -55,7 +147,7 @@ form {
 	font-family: 'Abril Fatface', cursive;
 }
 
-#tavrn-footer-small {
+/*#tavrn-footer-small {
 	font-family: 'Abril Fatface', cursive;
-}
+}*/
 
