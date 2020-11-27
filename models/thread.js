@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Replies = require('./replies')
 
 const threadSchema = new mongoose.Schema({
 	title: String,
@@ -12,7 +13,7 @@ const threadSchema = new mongoose.Schema({
 		ref: 'User',
 		required: true
 	}
-	// replies: [Replies.schema]
+	replies: [Replies.schema]
 })
 
 const Thread = mongoose.model('Thread', threadSchema)
