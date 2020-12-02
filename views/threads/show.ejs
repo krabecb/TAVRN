@@ -10,8 +10,34 @@
 	</div>
 
 	<!-- Show comments -->
+	<div id="show-replies">
+
+      <ul id="replies">
+        <% thread.replies.forEach((reply) => { %>
+          <div id="reply-bubble">
+            <li>
+              <%= reply.text %>
+              <br />
+              <small>(<%= reply.date.toLocaleString() %>) by <%= reply.username %> </small>
+            </li>
+          </div>
+        <% }) %>
+      </ul>
+
+    </div>
 
 	<!-- If user, show add comment -->
+	<div id="show-add-reply">
+
+  	<% if(username) { %>
+    	<form method="POST" action="/replies/<%= thread.id %>">
+    	    <textarea name="text" placeholder="Reply to <%= thread.title %>?"></textarea>
+    	    <br />
+    	    <button>Reply</button>
+    	</form>
+   	<% } %>
+
+   </div>
 
 	<% if(user == thread.user.username) { %>
      	 <div>

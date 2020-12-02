@@ -3,12 +3,9 @@
 	<h3>Sign up here</h3>
 
 	<form method="POST" action="/auth/register">
-		<fieldset>
-			<legend>
-				<small>
-					Choose a username and password below
-				</small>
-			</legend>
+		<h1>Register</h1>
+
+		<div class="form">
 			<div>
 				<label for="username">Username:</label>
 				<input 
@@ -16,6 +13,7 @@
 					type="text" 
 					name="username"
 					placeholder="Create a username" 
+					autocomplete="off" 
 				/>
 			</div>
 			<div>
@@ -25,6 +23,7 @@
 					type="password" 
 					name="password"
 					placeholder="Create a password" 
+					autocomplete="off"
 				/>
 			</div>
 			<div>
@@ -34,6 +33,7 @@
 	            type="text" 
 	            name="firstname" 
 	            placeholder="Enter your first name" 
+	            autocomplete="off"
 	          />
 	        </div>
 	        <div>
@@ -43,6 +43,7 @@
 	            type="text" 
 	            name="lastname" 
 	            placeholder="Enter your last name" 
+	            autocomplete="off"
 	          />
 	        </div>
 	        <div>
@@ -63,6 +64,7 @@
 	            type="text" 
 	            name="hometown" 
 	            placeholder="Enter the name of your hometown" 
+	            autocomplete="off"
 	          />
 	        </div>
 	        <div>
@@ -72,10 +74,11 @@
 	            type="text" 
 	            name="email" 
 	            placeholder="Enter your email address" 
+	            autocomplete="off"
 	          />
 	        </div>
 			<button>Sign up</button>
-		</fieldset>
+		</div>
 	</form>
 
 <%- include('../partials/footer.ejs') %>
