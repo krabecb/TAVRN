@@ -13,20 +13,6 @@ html {
 }
 
 /*Animated responsive navbar - Fireship*/
-/*header {
-	display: flex;
-	justify-content: space-around;
-}*/
-
-/*nav {
-	width: max-content;
-}
-
-nav a {
-	color: black;
-	text-decoration: none
-}*/
-
 #navbar {
 	width: 5rem;
 	height: 100vh;
@@ -108,25 +94,11 @@ nav a {
 
 }
 
-/*Animated responsive navbar - Fireship*/
 main {
 	margin-left: 5rem;
 	padding: 1rem;
 }
-
-/*footer {
-	position: relative;
-	bottom: 0;
-	width: 100%;
-	text-align: center;
-	padding-top: 5px;
-	padding-bottom: 5px;
-}*/
-
-hr {
-	width: 75%;
-	margin: 0 auto;
-}
+/*Animated responsive navbar END - Fireship*/
 
 h3 {
 	text-align: center;
@@ -153,7 +125,20 @@ form {
 	justify-content: flex-end;
 }
 
-/*#tavrn-footer-small {
-	font-family: 'Abril Fatface', cursive;
-}*/
+.form {
+ 	width: max-content;
+ 	position: relative;
+ 	height: 50px;
+}
 
+.form input {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	width: max-content;
+	/*color: #0bc6fd;*/
+	padding-top: 5px;
+	margin-bottom: 10px;
+	background: transparent;
+	border: none;
+}
