@@ -1,7 +1,17 @@
-body {
+body.general {
 	background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 	background-repeat: no-repeat;
-  background-attachment: fixed;
+  	background-attachment: fixed;
+	font-family: 'Raleway', sans-serif;
+	/*Animated responsive navbar - Fireship*/
+	margin: 0;
+	padding: 0;
+}
+
+body.home {
+	background: url(https://i.imgur.com/lkRyc1K.jpg);
+	background-size: cover;
+  	background-attachment: fixed;
 	font-family: 'Raleway', sans-serif;
 	/*Animated responsive navbar - Fireship*/
 	margin: 0;
