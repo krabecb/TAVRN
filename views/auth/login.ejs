@@ -1,40 +1,41 @@
 <%- include('../partials/header.ejs') %>
 
-  <div id="login">
+  <form method="POST" action="/auth/login">
 
-    <h3>Log in here</h3>
+    <div class="form">
 
-    <p><%= message %></p>
+      <h3>Log in here</h3>
 
-    <form method="POST" action="/auth/login">
-      <fieldset>
-        <legend>
-          <small>
-            Enter your username and password below
-          </small>
-        </legend>
-        <div>
-          <label for="username">Username:</label>
-          <input 
-            id="username" 
-            type="text" 
-            name="username" 
-            placeholder="Enter your username" 
-          />
-        </div>
-        <div>
-          <label for="password">Password</label>
-          <input 
-            id="password"
-            type="password" 
-            name="password"
-            placeholder="Enter your password"
-          >
-        </div>
-        <button>Log in!</button>
-      </fieldset>
-    </form>
+      <p><%= message %></p>
 
-  </div>
+          <div>
+            <label for="username" class="label-username">
+              <span class="content-username">Username</span>
+            </label>
+            <input 
+              id="username" 
+              type="text" 
+              name="username" 
+              placeholder="Enter your username"
+              autocomplete="off"
+            />
+          </div>
+          <div>
+            <label for="password" class="label-password">
+              <span class="content-password">Password</span>
+            </label>
+            <input 
+              id="password"
+              type="password" 
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="off"
+            />
+          </div>
+          <button>Log in!</button>
+
+    </div>
+
+  </form>
 
 <%- include('../partials/footer.ejs') %>
