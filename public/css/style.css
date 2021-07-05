@@ -26,6 +26,13 @@ body.thread-index {
 	padding: 0;
 }
 
+body.login {
+	background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+	font-family: 'Raleway', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
 html {
 	height: 100vh;
 }
