@@ -61,21 +61,52 @@ router.post('/', async (req, res, next) => {
 
 router.post('/like', async (req, res, next) => {
 	try {
+		
 		const foundThread = await Thread.findById(req.body.threadId).populate('user')
 		console.log(`HERE IS THE foundThread INSIDE THE LIKE POST ROUTE\n ${foundThread}`)
+		
+		if(!foundThread.userLikes.includes(req.body.loggedInUser)) {
 
-		foundThread.userLikes.push(req.body.loggedInUser)
+			foundThread.userLikes.push(req.body.loggedInUser)
 
-		await foundThread.save()
+			await foundThread.save()
 
-		const foundUser = await User.findById(req.body.loggedInUser)
-		console.log(`HERE IS THE foundUser INSIDE THE LIKE POST ROUTE\n ${foundUser}`)
+			const foundUser = await User.findById(req.body.loggedInUser)
+			console.log(`HERE IS THE foundUser INSIDE THE LIKE POST ROUTE\n ${foundUser}`)
 
-		foundUser.likedPosts.push(req.body.threadId)
+			foundUser.likedPosts.push(req.body.threadId)
 
-		await foundUser.save()
+			await foundUser.save()
 
-		res.redirect('/thread')
+			res.redirect('/thread')
+
+		} else {
+
+			const userIndex = foundThread.userLikes.indexOf(req.body.loggedInUser)
+			if(userIndex > -1) {
+				foundThread.userLikes.splice(userIndex, 1)
+			}
+
+			console.log("LIKE REMOVED")
+
+			await foundThread.save()
+
+			const foundUser = await User.findById(req.body.loggedInUser)
+			console.log(`HERE IS THE foundUser INSIDE THE LIKE POST ROUTE\n ${foundUser}`)
+
+			const threadIndex = foundUser.likedPosts.indexOf(req.body.threadId)
+			if(threadIndex > -1) {
+				console.log("YES!!!")
+				foundUser.likedPosts.splice(threadIndex, 1)
+			}
+
+			console.log("THREAD REMOVED")
+
+			await foundUser.save()
+
+			res.redirect('/thread')
+
+		}
 	} catch(error) {
 		next(error)
 	}

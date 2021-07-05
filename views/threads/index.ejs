@@ -21,15 +21,17 @@
               </p>
               <p class="small">Owner: <%= thread.user.username %></p>
               <% if(thread.userLikes.includes(userId)) { %>
-                <p>You've already liked this!</p>
-                <p>Likes: +<%=thread.userLikes.length%></p>
+                <form method="post" action="/thread/like">
+                  <input type="hidden" name="threadId" value="<%= thread._id %>">
+                  <input type="hidden" name="loggedInUser" value="<%= userId %>">
+                  <button>❤️ +<%= thread.userLikes.length %></button>
+                </form>
               <% } else { %>
                 <form method="post" action="/thread/like">
                   <input type="hidden" name="threadId" value="<%= thread._id %>">
                   <input type="hidden" name="loggedInUser" value="<%= userId %>">
-                  <button>Like</button>
+                  <button>♡ +<%= thread.userLikes.length %></button>
                 </form>
-                <p>Likes: +<%=thread.userLikes.length%></p>
               <% } %>
             </div>
           </li>
