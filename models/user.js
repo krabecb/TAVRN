@@ -9,6 +9,10 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
+	likedPosts: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Thread'
+	}],
 	firstName: String,
 	lastName: String,
 	dateOfBirth: Date,

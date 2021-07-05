@@ -14,7 +14,7 @@ router.post('/:id', async (req, res, next) => {
 	}
 	thread.replies.push(replyToCreate)
 
-	console.log('This is commentToCreate');
+	console.log('This is replyToCreate');
 	console.log(replyToCreate);
 
 	await thread.save()

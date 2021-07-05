@@ -164,3 +164,41 @@ button {
 
 /*Thread index styling*/
 
+a {
+	text-decoration: none;
+	font-weight: bolder;
+	color: inherit;
+}
+
+.thread-index {
+	list-style-type: none;
+	background-color: #1B1B1F;
+	border-radius: 10px;
+	width: 1255px;
+}
+
+.thread-index-content {
+	margin-left: 25px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	color: #fdfbfb;
+}
+
+.small {
+	font-size: small;
+}
+
+a.thread-link {
+	color: #0bc6fd;
+}
+
+/* ul {
+	display: flex;
+	padding: 0;
+	justify-content: space-evenly;
+}
+
+li.thread-index {
+	margin-left: 5px;;
+} */

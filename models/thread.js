@@ -13,7 +13,11 @@ const threadSchema = new mongoose.Schema({
 		ref: 'User',
 		required: true
 	},
-	replies: [Replies.schema]
+	replies: [Replies.schema],
+	userLikes: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User'
+	}]
 })
 
 const Thread = mongoose.model('Thread', threadSchema)

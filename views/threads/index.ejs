@@ -2,18 +2,35 @@
 
   <div id="thread-feed">
 
+    <div>
+       <h3>Threads</h3>
+      </div>
+
     <ul id="threads">
+        <%let formattedDate = '' %>
         <% threads.forEach((thread) => { %>
-          <li>
-            <div id="thread-index">
-              <a href="/thread/<%= thread.id %>"><%= thread.title %></a>
+          <li class="thread-index">
+            <div class="thread-index-content">
+              <a class="thread-link" href="/thread/<%= thread.id %>"><%= thread.title %></a>
               <p id="description">
                 <%= thread.threadDescription %>
               </p>
-              <p>
-                <%= thread.date %>  
+              <% formattedDate = thread.date.toDateString() %>
+              <p class="small">
+                Created: <%= formattedDate %>  
               </p>
-              <p>Posted by: <%= thread.user.username %></p>
+              <p class="small">Owner: <%= thread.user.username %></p>
+              <% if(thread.userLikes.includes(userId)) { %>
+                <p>You've already liked this!</p>
+                <p>Likes: +<%=thread.userLikes.length%></p>
+              <% } else { %>
+                <form method="post" action="/thread/like">
+                  <input type="hidden" name="threadId" value="<%= thread._id %>">
+                  <input type="hidden" name="loggedInUser" value="<%= userId %>">
+                  <button>Like</button>
+                </form>
+                <p>Likes: +<%=thread.userLikes.length%></p>
+              <% } %>
             </div>
           </li>
         <% }) %>    

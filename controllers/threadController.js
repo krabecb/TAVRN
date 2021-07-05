@@ -59,6 +59,28 @@ router.post('/', async (req, res, next) => {
 	}
 })
 
+router.post('/like', async (req, res, next) => {
+	try {
+		const foundThread = await Thread.findById(req.body.threadId).populate('user')
+		console.log(`HERE IS THE foundThread INSIDE THE LIKE POST ROUTE\n ${foundThread}`)
+
+		foundThread.userLikes.push(req.body.loggedInUser)
+
+		await foundThread.save()
+
+		const foundUser = await User.findById(req.body.loggedInUser)
+		console.log(`HERE IS THE foundUser INSIDE THE LIKE POST ROUTE\n ${foundUser}`)
+
+		foundUser.likedPosts.push(req.body.threadId)
+
+		await foundUser.save()
+
+		res.redirect('/thread')
+	} catch(error) {
+		next(error)
+	}
+})
+
 //Thread update: PUT /thread/:id
 router.put('/:id', async (req, res, next) => {
 	try {
