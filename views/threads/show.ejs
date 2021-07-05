@@ -1,9 +1,9 @@
-<%- include('../partials/header.ejs') %>
+<%- include('../partials/headerthreadshow.ejs') %>
 
 	<div id="show-container">
 		
 		<div id="thread-show">
-			<p><%= thread.title %></p>
+			<p class="show-title"><%= thread.title %></p>
 			<p><%= thread.threadDescription %></p>
 		</div>
 
@@ -30,10 +30,9 @@
 	<div id="show-add-reply">
 
   	<% if(username) { %>
-    	<form method="POST" action="/replies/<%= thread.id %>">
-    	    <textarea name="text" placeholder="Reply to <%= thread.title %>?"></textarea>
-    	    <br />
-    	    <button>Reply</button>
+    	<form method="POST" action="/replies/<%= thread.id %>" id="text-reply">
+    	    <textarea name="text" placeholder="Reply to <%= thread.title %>" rows="10" cols="150" id="show-textarea"></textarea>
+    	    <button id="reply-button">Reply</button>
     	</form>
    	<% } %>
 
